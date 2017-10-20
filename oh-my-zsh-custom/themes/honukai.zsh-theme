@@ -17,7 +17,9 @@ function box_name {
 local machine_name='$(box_name)'
 
 # Directory info.
-local current_dir='${PWD/#$HOME/~}'
+#local current_dir='${PWD/#$HOME/~}'
+# Use zsh "shrink-path" plugin to show a fish-like shortened path for PWD
+local current_dir='$(shrink_path -f)'
 
 # Git info.
 local git_info='$(git_prompt_info)'
