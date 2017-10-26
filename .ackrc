@@ -1,0 +1,3 @@
+--ignore-directory=is:.happypack
+--type-add=style:ext:css,sass,scss,less
+--type-add=ts:ext:ts
