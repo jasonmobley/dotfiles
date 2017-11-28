@@ -1,0 +1,2 @@
+# Only load the most recent 1,000 commits
+set main-options = -n 1000
