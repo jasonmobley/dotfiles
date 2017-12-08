@@ -95,6 +95,7 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:
 # Aliases
 alias brews='brew list -1'
 alias ackl='ack -l'
+alias fzv='fzf --multi | xargs mvim -p --'
 
 # Enable iTerm shell integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
