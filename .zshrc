@@ -95,8 +95,10 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:
 # Aliases
 alias brews='brew list -1'
 alias ackl='ack -l'
+alias ackp='find . -regex ".*en_US[\.\/].*properties" -print | ack -x'
 alias ackq='ack -Q'
 alias fzv='fzf --multi | xargs mvim -p --'
+alias vimr='vim -R'
 
 # Enable iTerm shell integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
