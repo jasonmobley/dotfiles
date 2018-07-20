@@ -21,12 +21,27 @@ local machine_name='$(box_name)'
 # Use zsh "shrink-path" plugin to show a fish-like shortened path for PWD
 local current_dir='$(shrink_path -f)'
 
-# Git info.
-local git_info='$(git_prompt_info)'
+# Git info (from .oh-my-zsh/lib/git.zsh git_prompt_info function)
+#ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg[white]%}on %{$fg[cyan]%}"
+#ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+#ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[red]%}✖︎"
+#ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg[green]%}●"
+#local git_info='$(git_prompt_info)'
+
+# Git info (from .oh-my-zsh/plugins/git-prompt custom plugin)
 ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg[white]%}on %{$fg[cyan]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[red]%}✖︎"
-ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg[green]%}●"
+ZSH_THEME_GIT_PROMPT_SEPARATOR=" "
+ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg[magenta]%}"
+ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[red]%}%{•%G%}"
+ZSH_THEME_GIT_PROMPT_CONFLICTS="%{$fg[red]%}%{×%G%}"
+ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[blue]%}%{+%G%}"
+ZSH_THEME_GIT_PROMPT_BEHIND="%{⬋%G%}"
+ZSH_THEME_GIT_PROMPT_AHEAD="%{⬈%G%}"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%{…%G%}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}%{✔%G%}"
+local git_info='$(git_super_status)'
+
 
 # Prompt format: \n # USER at MACHINE in DIRECTORY on git:BRANCH STATE [TIME] \n $
 PROMPT="
@@ -38,3 +53,4 @@ ${machine_name}\
 ${git_info}
 %{$terminfo[bold]$fg[red]%}➡ %{$reset_color%}"
 
+RPROMPT=
