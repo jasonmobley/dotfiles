@@ -7,6 +7,12 @@ export DEFAULT_USER=`id -un`
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+# Load nvm if it's installed (this needs to be before the plugins section below)
+if [[ -d $HOME/.nvm ]] {
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+}
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -56,7 +62,7 @@ if [[ -d $HOME/dotfiles/oh-my-zsh-custom ]] {
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git jira npm shrink-path)
+plugins=(git git-prompt jira npm shrink-path zsh-nvm)
 
 if [[ -e $ZSH/oh-my-zsh.sh ]] {
   source $ZSH/oh-my-zsh.sh
@@ -78,6 +84,9 @@ else
   export EDITOR='vim'
 fi
 
+# enable caching for oh-my-zsh/git-prompt plugin
+ZSH_THEME_GIT_PROMPT_CACHE=1
+
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
@@ -95,9 +104,11 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:
 # Aliases
 alias brews='brew list -1'
 alias ackl='ack -l'
-alias ackp='find . -regex ".*en_US[\.\/].*properties" -print | ack -x'
+alias ackp='fd -e properties -t f -p "en_US[^_]" | ack -x'
 alias ackq='ack -Q'
+alias agl='ag --literal'
 alias fzv='fzf --multi | xargs mvim -p --'
+alias tcp='lsof -P -i TCP -s TCP:LISTEN'
 alias vimr='vim -R'
 
 # Enable iTerm shell integration
