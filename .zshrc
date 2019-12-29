@@ -148,8 +148,15 @@ alias ackp='fd -e properties -t f -p "en_US[^_]" | ack -x'
 alias ackq='ack -Q'
 alias agl='ag --literal'
 alias fzv='fzf --multi | xargs mvim -p --'
+# print out the list of packages in node_modules that are npm link'd
+alias nlinks='find node_modules -maxdepth 1 -type l -print'
+alias path='echo $PATH | tr ":" "\n"'
 alias tcp='lsof -P -i TCP -s TCP:LISTEN'
 alias vimr='vim -R'
+
+if type nvim > /dev/null 2>&1; then
+  alias vim='nvim'
+fi
 
 # Enable iTerm shell integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
