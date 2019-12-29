@@ -75,6 +75,9 @@ if [[ -e $ZSH/oh-my-zsh.sh ]] {
   echo "oh-my-zsh is not installed!"
 }
 
+# Add dotfiles/.zfunctions to $fpath for custom functions
+fpath=( "$HOME/dotfiles/.zfunctions" $fpath )
+
 # User configuration
 
 # emacs mode for line editing
