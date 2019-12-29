@@ -14,12 +14,12 @@ function box_name {
         echo -n "$ZSH_THEME_MACHINE_PROMPT_SUFFIX"
 	fi
 }
-local machine_name='$(box_name)'
+#local machine_name='$(box_name)'
 
 # Directory info.
 #local current_dir='${PWD/#$HOME/~}'
 # Use zsh "shrink-path" plugin to show a fish-like shortened path for PWD
-local current_dir='$(shrink_path -f)'
+#local current_dir='$(shrink_path -f)'
 
 # Git info (from .oh-my-zsh/lib/git.zsh git_prompt_info function)
 #ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg[white]%}on %{$fg[cyan]%}"
@@ -40,17 +40,20 @@ ZSH_THEME_GIT_PROMPT_BEHIND="%{⬋%G%}"
 ZSH_THEME_GIT_PROMPT_AHEAD="%{⬈%G%}"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{…%G%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}%{✔%G%}"
-local git_info='$(git_super_status)'
+#local git_info='$(git_super_status)'
 
 
 # Prompt format: \n # USER at MACHINE in DIRECTORY on git:BRANCH STATE [TIME] \n $
+#PROMPT="
+#%{$terminfo[bold]$fg[blue]%}%#%{$reset_color%} \
+#%{$fg[cyan]%}%n \
+#${machine_name}\
+#%{$fg[white]%}in \
+#%{$terminfo[bold]$fg[yellow]%}${current_dir}%{$reset_color%}\
+#${git_info}
+#%{$terminfo[bold]$fg[red]%}➡ %{$reset_color%}"
+
 PROMPT="
-%{$terminfo[bold]$fg[blue]%}%#%{$reset_color%} \
-%{$fg[cyan]%}%n \
-${machine_name}\
-%{$fg[white]%}in \
-%{$terminfo[bold]$fg[yellow]%}${current_dir}%{$reset_color%}\
-${git_info}
 %{$terminfo[bold]$fg[red]%}➡ %{$reset_color%}"
 
 RPROMPT=

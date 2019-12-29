@@ -10,7 +10,9 @@ export ZSH=$HOME/.oh-my-zsh
 # Load nvm if it's installed (this needs to be before the plugins section below)
 if [[ -d $HOME/.nvm ]] {
   export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  printf "Loading nvm..."
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use
+  printf "done\n"
 }
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -62,10 +64,13 @@ if [[ -d $HOME/dotfiles/oh-my-zsh-custom ]] {
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-prompt jira npm shrink-path zsh-nvm)
+#plugins=(git git-prompt npm shrink-path zsh-nvm)
+plugins=(git npm zsh-nvm)
 
 if [[ -e $ZSH/oh-my-zsh.sh ]] {
+  printf "Sourcing OMZ..."
   source $ZSH/oh-my-zsh.sh
+  printf "done\n"
 } else {
   echo "oh-my-zsh is not installed!"
 }
@@ -84,6 +89,11 @@ else
   export EDITOR='vim'
 fi
 
+# Initialize pure prompt
+# https://github.com/sindresorhus/pure
+#autoload -U promptinit; promptinit
+#prompt pure
+
 # enable caching for oh-my-zsh/git-prompt plugin
 ZSH_THEME_GIT_PROMPT_CACHE=1
 
@@ -92,7 +102,9 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Source machine-specific .zshrc
 if [[ -e $HOME/.zshrc.local ]] {
+  printf "Sourcing ~/.zshrc.local..."
   source $HOME/.zshrc.local
+  printf "done\n"
 }
 
 # Make path array unique
