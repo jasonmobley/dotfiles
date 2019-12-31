@@ -64,6 +64,9 @@ set splitright
 set background=dark
 colorscheme base16-eighties
 
+" Fix colors in terminal vim when using a 256 base16 shell theme
+let base16colorspace=256
+
 if has("win32")
   let g:vimfiles = $HOME . '\vimfiles\'
 else
