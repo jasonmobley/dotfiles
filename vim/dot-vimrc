@@ -1,4 +1,5 @@
 set nocompatible
+set termguicolors
 
 " Status Line stuff
 set laststatus=2
@@ -6,7 +7,6 @@ set laststatus=2
 " vim-airline configuration
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#whitespace#enabled = 0 "disable trailing/mixed-indent whitespace checking
-
 
 " Make <Leader> be comma instead of backslash
 let mapleader=","
@@ -63,9 +63,6 @@ set splitright
 
 set background=dark
 colorscheme base16-eighties
-
-" Fix colors in terminal vim when using a 256 base16 shell theme
-let base16colorspace=256
 
 if has("win32")
   let g:vimfiles = $HOME . '\vimfiles\'
