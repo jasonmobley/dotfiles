@@ -1,6 +1,3 @@
-call pathogen#helptags()
-call pathogen#runtime_prepend_subdirectories(expand('~/Dropbox/dotfiles/.vim/bundles'))
-
 set nocompatible
 
 " Status Line stuff
