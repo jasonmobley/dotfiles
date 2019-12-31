@@ -61,14 +61,8 @@ set hidden
 set splitbelow
 set splitright
 
-" Use base16-eighties when we have a GUI (gvim, macvim) but use
-" Tomorrow-Night-Eighties by default because base16 schemes don't
-" look right in a terminal unless you use base16-shell too.
 set background=dark
-colorscheme Tomorrow-Night-Eighties
-if has("gui_running")
-  colorscheme base16-eighties
-end
+colorscheme base16-eighties
 
 if has("win32")
   let g:vimfiles = $HOME . '\vimfiles\'
