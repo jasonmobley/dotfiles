@@ -1,3 +1,0 @@
-[submodule "oh-my-zsh-custom/plugins/zsh-nvm"]
-	path = zsh/oh-my-zsh-custom/plugins/zsh-nvm
-	url = https://github.com/lukechilds/zsh-nvm
