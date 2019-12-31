@@ -28,6 +28,11 @@ set expandtab
 " Highlight tab characters, trailing whitespace, and lines that are longer than the window
 set list listchars=tab:»·,trail:·,precedes:<,extends:>
 
+" Delete comment character when joining commented lines
+if v:version > 703
+  set formatoptions+=j
+endif
+
 " Draw a line at columns 100 and 120 to remind me not to write lines that are too long
 set colorcolumn=100,120
 
