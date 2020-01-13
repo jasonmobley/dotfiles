@@ -10,9 +10,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Load nvm if it's installed (this needs to be before the plugins section below)
 if [[ -d $HOME/.nvm ]] {
   export NVM_DIR="$HOME/.nvm"
-  printf "Loading nvm..."
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use
-  printf "done\n"
 }
 
 # Base16 Shell
@@ -74,9 +72,7 @@ if [[ -d $HOME/.omz-custom ]] {
 plugins=(git npm)
 
 if [[ -e $ZSH/oh-my-zsh.sh ]] {
-  printf "Sourcing OMZ..."
   source $ZSH/oh-my-zsh.sh
-  printf "done\n"
 } else {
   echo "oh-my-zsh is not installed!"
 }
@@ -111,9 +107,7 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Source machine-specific .zshrc
 if [[ -e $HOME/.zshrc.local ]] {
-  printf "Sourcing ~/.zshrc.local..."
   source $HOME/.zshrc.local
-  printf "done\n"
 }
 
 # Make path array unique
