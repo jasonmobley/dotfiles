@@ -10,9 +10,6 @@
 [submodule "vim/dot-vim/pack/default/start/vim-unimpaired"]
 	path = vim/dot-vim/pack/default/start/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
-[submodule "vim/dot-vim/pack/default/start/delimitMate"]
-	path = vim/dot-vim/pack/default/start/delimitMate
-	url = https://github.com/Raimondi/delimitMate.git
 [submodule "vim/dot-vim/pack/default/start/editorconfig-vim"]
 	path = vim/dot-vim/pack/default/start/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim.git
