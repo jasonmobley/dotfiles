@@ -135,6 +135,6 @@ alias path='echo $PATH | tr ":" "\n"'
 alias tcp='lsof -P -i TCP -s TCP:LISTEN'
 alias vimr='vim -R'
 
-if type nvim > /dev/null 2>&1; then
-  alias vim='nvim'
-fi
+#if type nvim > /dev/null 2>&1; then
+#  alias vim='nvim'
+#fi
