@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
 # Set $DEFAULT_USER so that PROMPT can omit user on local shells
 export DEFAULT_USER=`id -un`
@@ -134,6 +134,8 @@ alias nlinks='find node_modules -maxdepth 1 -type l -print'
 alias path='echo $PATH | tr ":" "\n"'
 alias tcp='lsof -P -i TCP -s TCP:LISTEN'
 alias vimr='vim -R'
+# print the current git branch and copy it to the clipboard
+alias branch='git branch --show-current | tee "$(tty)" | tr -d "\n" | pbcopy'
 
 #if type nvim > /dev/null 2>&1; then
 #  alias vim='nvim'
