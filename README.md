@@ -6,7 +6,7 @@
 2. Install GNU Stow,
    e.g. `brew install stow`
 3. Clone the repo to `~/dotfiles`:
-   `git clone --recurse-submodules https://github.com/jasonmobley/dotfiles.git ~/dotfiles`
+   `git clone --recurse-submodules git@github.com:jasonmobley/dotfiles.git ~/dotfiles`
 4. Move to the new dotfiles directory:
    `cd ~/dotfiles`
 5. Create symlinks by running `./link.sh`
