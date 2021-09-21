@@ -105,9 +105,6 @@ ZSH_THEME_GIT_PROMPT_CACHE=1
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# Enable iTerm shell integration
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
 # Source machine-specific .zshrc
 if [[ -e $HOME/.zshrc.local ]] {
   source $HOME/.zshrc.local
