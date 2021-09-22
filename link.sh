@@ -7,4 +7,4 @@ fi
 
 # Call stow to make appropriate symlinks for each directory in the current directory
 # The --dotfiles flag will make it name links to things named 'dot-foo' be named '.foo'
-stow -R --dotfiles $(ls -d1 */)
+stow -R $(ls -d1 */)

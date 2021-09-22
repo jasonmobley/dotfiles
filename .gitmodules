@@ -1,48 +1,48 @@
 [submodule "vim/dot-vim/pack/default/start/vim-airline"]
-	path = vim/dot-vim/pack/default/start/vim-airline
+	path = vim/.vim/pack/default/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
 [submodule "vim/dot-vim/pack/default/start/base16-vim"]
-	path = vim/dot-vim/pack/default/start/base16-vim
+	path = vim/.vim/pack/default/start/base16-vim
 	url = https://github.com/chriskempson/base16-vim.git
 [submodule "vim/dot-vim/pack/default/start/bufexplorer"]
-	path = vim/dot-vim/pack/default/start/bufexplorer
+	path = vim/.vim/pack/default/start/bufexplorer
 	url = https://github.com/jlanzarotta/bufexplorer.git
 [submodule "vim/dot-vim/pack/default/start/vim-unimpaired"]
-	path = vim/dot-vim/pack/default/start/vim-unimpaired
+	path = vim/.vim/pack/default/start/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
 [submodule "vim/dot-vim/pack/default/start/editorconfig-vim"]
-	path = vim/dot-vim/pack/default/start/editorconfig-vim
+	path = vim/.vim/pack/default/start/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim.git
 [submodule "vim/dot-vim/pack/default/start/nerdtree"]
-	path = vim/dot-vim/pack/default/start/nerdtree
+	path = vim/.vim/pack/default/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
 [submodule "vim/dot-vim/pack/default/start/supertab"]
-	path = vim/dot-vim/pack/default/start/supertab
+	path = vim/.vim/pack/default/start/supertab
 	url = https://github.com/ervandew/supertab.git
 [submodule "vim/dot-vim/pack/default/start/syntastic"]
-	path = vim/dot-vim/pack/default/start/syntastic
+	path = vim/.vim/pack/default/start/syntastic
 	url = https://github.com/vim-syntastic/syntastic.git
 [submodule "vim/dot-vim/pack/default/start/vim-airline-themes"]
-	path = vim/dot-vim/pack/default/start/vim-airline-themes
+	path = vim/.vim/pack/default/start/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
 [submodule "vim/dot-vim/pack/default/start/vim-fugitive"]
-	path = vim/dot-vim/pack/default/start/vim-fugitive
+	path = vim/.vim/pack/default/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
 [submodule "vim/dot-vim/pack/default/start/vim-gitgutter"]
-	path = vim/dot-vim/pack/default/start/vim-gitgutter
+	path = vim/.vim/pack/default/start/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
 [submodule "vim/dot-vim/pack/default/start/vim-polyglot"]
-	path = vim/dot-vim/pack/default/start/vim-polyglot
+	path = vim/.vim/pack/default/start/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot.git
 [submodule "vim/dot-vim/pack/default/start/vim-repeat"]
-	path = vim/dot-vim/pack/default/start/vim-repeat
+	path = vim/.vim/pack/default/start/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
 [submodule "vim/dot-vim/pack/default/start/vim-surround"]
-	path = vim/dot-vim/pack/default/start/vim-surround
+	path = vim/.vim/pack/default/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
 [submodule "base16-shell/dot-base16-shell"]
-	path = base16-shell/dot-base16-shell
+	path = base16-shell/.base16-shell
 	url = https://github.com/chriskempson/base16-shell.git
 [submodule "vim/dot-vim/pack/default/start/lexima"]
-	path = vim/dot-vim/pack/default/start/lexima
+	path = vim/.vim/pack/default/start/lexima
 	url = https://github.com/cohama/lexima.vim.git

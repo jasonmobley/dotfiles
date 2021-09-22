@@ -6,5 +6,5 @@ if ! [ -x "$(command -v stow)" ]; then
 fi
 
 # Call stow to *remove* symlinks for each directory in the current directory
-stow -D --dotfiles $(ls -d1 */)
+stow -D $(ls -d1 */)
 
