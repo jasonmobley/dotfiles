@@ -129,6 +129,7 @@ augroup dmake
 augroup END
 
 " Stop the infernal beeping
+set belloff=all
 set noerrorbells visualbell t_vb=
 augroup nobells
   autocmd!
