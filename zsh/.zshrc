@@ -74,7 +74,11 @@ plugins=(git npm)
 if [[ -e $ZSH/oh-my-zsh.sh ]] {
   source $ZSH/oh-my-zsh.sh
 } else {
-  echo "oh-my-zsh is not installed!"
+  >&2 echo "oh-my-zsh is not installed!"
+}
+
+if [[ -f ~/.fzf.zsh ]] {
+  source ~/.fzf.zsh
 }
 
 # Add dotfiles/.zfunctions to $fpath for custom functions
