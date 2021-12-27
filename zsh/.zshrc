@@ -146,5 +146,5 @@ alias tcp='lsof -P -i TCP -s TCP:LISTEN'
 # print the current git branch and copy it to the clipboard
 alias branch='git branch --show-current | tee "$(tty)" | tr -d "\n" | pbcopy'
 
-
+# Prefer neovim as vim when present
 (( $+commands[nvim] )) && alias vim=nvim
