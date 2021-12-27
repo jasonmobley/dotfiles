@@ -1,4 +1,3 @@
 --ignore-directory=is:.happypack
---type-add=style:ext:css,sass,scss,less
---type-add=ts:ext:ts
---type-add=properties:ext:properties
+# Use less as the pager to truncate long lines
+--pager=less -FRS
