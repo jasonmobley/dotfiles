@@ -128,16 +128,18 @@ alias brews='brew list -1'
 alias ackl='ack -l'
 alias ackp='fd -e properties -t f -p "en_US[^_]" | ack -x'
 alias ackq='ack -Q'
+# ack but only search files that git knows about (honor .gitignore)
+alias agk='git ls-files --others --cached --exclude-standard | ack -x'
 alias agl='ag --literal'
+alias fdd='fd -t d'
+alias fdf='fd -t f'
 alias fzv='fzf --multi | xargs mvim -p --'
 # print out the list of packages in node_modules that are npm link'd
 alias nlinks='find node_modules -maxdepth 1 -type l -print'
 alias path='echo $PATH | tr ":" "\n"'
 alias tcp='lsof -P -i TCP -s TCP:LISTEN'
-alias vimr='vim -R'
 # print the current git branch and copy it to the clipboard
 alias branch='git branch --show-current | tee "$(tty)" | tr -d "\n" | pbcopy'
 
-#if type nvim > /dev/null 2>&1; then
-#  alias vim='nvim'
-#fi
+
+(( $+commands[nvim] )) && alias vim=nvim
