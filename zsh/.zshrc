@@ -128,6 +128,11 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:
 # Bat config
 export BAT_THEME=TwoDark
 
+# Tell ripgrep about our config file if present (should be linked to ~ from ~/dotfiles/ripgrep)
+if [[ -e $HOME/.ripgreprc ]] {
+  export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+}
+
 # Aliases
 alias brews='brew list -1'
 alias ackl='ack -l'
