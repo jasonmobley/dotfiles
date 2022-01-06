@@ -6,5 +6,6 @@ if ! [ -x "$(command -v stow)" ]; then
 fi
 
 # Call stow to *remove* symlinks for each directory in the current directory
-stow -D $(ls -d1 */)
+# Also --ignore the damned .DS_Store files MacOS lays down in any Finder-opened dir
+stow -D --ignore='DS_Store' $(ls -d1 */)
 
