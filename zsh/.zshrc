@@ -133,6 +133,18 @@ if [[ -e $HOME/.ripgreprc ]] {
   export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 }
 
+# Configure exa if it's installed
+# https://the.exa.website/
+if (( $+commands[exa] )) {
+  # change file owner to yellow instead of bold yellow, modified time to purple instead of blue
+  export EXA_COLORS="uu=33:da=35"
+  # format times like file modified time as ISO instead of dynamic which is too variable
+  export TIME_STYLE=long-iso
+  # list [a]ll files in a [l]ong listing with column [h]eaders and include git status info if any
+  alias la='exa -ahl --git'
+  alias ll='exa -hl --git'
+}
+
 # Aliases
 alias brews='brew list -1'
 alias ackl='ack -l'
