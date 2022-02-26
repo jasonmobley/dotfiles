@@ -1,0 +1,12 @@
+# Don't spam the terminal with long lines of text (e.g. matches in minified JS files)
+--max-columns=200
+
+# Sort results by path so they the ordering is stable
+# (otherwise multi-threaded results produce different subsequent orderings from same search)
+--sort=path
+
+# Make matching paths yellow instead of magenta (to be easier to see)
+--colors=path:fg:yellow
+
+# Make matching text cyan instead of red
+--colors=match:fg:cyan
