@@ -5,6 +5,9 @@
 # (otherwise multi-threaded results produce different subsequent orderings from same search)
 --sort=path
 
+# Use smart case by default (case insensitive unless search term contains uppercase chars)
+--smart-case
+
 # Make matching paths yellow instead of magenta (to be easier to see)
 --colors=path:fg:yellow
 
