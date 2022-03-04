@@ -107,6 +107,15 @@ set number
 " Highlight the line that the cursor is on
 set cursorline
 
+if has("gui_running")
+  " Set blink rate slower than the default to be less annoying
+  set guicursor=a:blinkwait700-blinkon650-blinkoff500
+else
+  " Disable guicursor in terminal because it will hijack terminal cursor style
+  " for the rest of the terminal session, which is annoying.
+  set guicursor=
+endif
+
 " Attempt to determine the type of a file based on its name and possibly its
 " contents.  Use this to allow intelligent auto-indenting for each filetype,
 " and for plugins that are filetype specific.
