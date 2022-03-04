@@ -145,7 +145,25 @@ if (( $+commands[exa] )) {
   alias ll='exa -hl --git'
 }
 
+# Functions
+#
+# print the current git branch and copy it to the clipboard
+branch() {
+  git branch --show-current
+}
+# print the "parent" branch of the current git branch and copy to the clipboard
+# (this is really more like the "merge-base" ... that is, the branch we pull from and would likely target with a PR)
+parent() {
+  git show-branch -a 2>/dev/null \
+    | grep '*' \
+    | grep -v "$(git branch --show-current)" \
+    | head -n1 \
+    | sed 's/.*\[\(.*\)\].*/\1/' \
+    | sed 's/[\^~].*//'
+}
+
 # Aliases
+#
 alias brews='brew list -1'
 alias ackl='ack -l'
 alias ackp='fd -e properties -t f -p "en_US[^_]" | ack -x'
@@ -156,12 +174,11 @@ alias agl='ag --literal'
 alias fdd='fd -t d'
 alias fdf='fd -t f'
 alias fzv='fzf --multi | xargs mvim -p --'
+alias gs='git status'
 # print out the list of packages in node_modules that are npm link'd
 alias nlinks='find node_modules -maxdepth 1 -type l -print'
 alias path='echo $PATH | tr ":" "\n"'
 alias tcp='lsof -P -i TCP -s TCP:LISTEN'
-# print the current git branch and copy it to the clipboard
-alias branch='git branch --show-current | tee "$(tty)" | tr -d "\n" | pbcopy'
 
 # Prefer neovim as vim when present
 (( $+commands[nvim] )) && alias vim=nvim
