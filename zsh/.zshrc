@@ -86,6 +86,11 @@ if [[ -f ~/.fzf.zsh ]] {
   source ~/.fzf.zsh
 }
 
+# Add rust and cargo stuff to PATH if Rust is installed to ~/.cargo
+if [[ -f $HOME/.cargo/env ]] {
+  source $HOME/.cargo/env
+}
+
 # Add dotfiles/.zfunctions to $fpath for custom functions
 fpath=( "$HOME/dotfiles/.zfunctions" $fpath )
 
