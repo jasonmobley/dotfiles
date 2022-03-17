@@ -46,3 +46,6 @@
 [submodule "vim/dot-vim/pack/default/start/lexima"]
 	path = vim/.vim/pack/default/start/lexima
 	url = https://github.com/cohama/lexima.vim.git
+[submodule "zsh/.omz-custom/plugins/zsh-syntax-highlighting"]
+	path = zsh/.omz-custom/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git

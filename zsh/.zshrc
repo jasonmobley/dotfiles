@@ -74,7 +74,7 @@ if [[ -d $HOME/.omz-custom ]] {
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git npm nvm)
+plugins=(git npm nvm zsh-syntax-highlighting)
 
 if [[ -e $ZSH/oh-my-zsh.sh ]] {
   source $ZSH/oh-my-zsh.sh
