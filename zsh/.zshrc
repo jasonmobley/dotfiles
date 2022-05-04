@@ -74,7 +74,7 @@ if [[ -d $HOME/.omz-custom ]] {
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git npm nvm zsh-syntax-highlighting)
+plugins=(nvm zsh-syntax-highlighting)
 
 if [[ -e $ZSH/oh-my-zsh.sh ]] {
   source $ZSH/oh-my-zsh.sh
@@ -170,16 +170,20 @@ parent() {
 # Aliases
 #
 alias brews='brew list -1'
-alias ackl='ack -l'
-alias ackp='fd -e properties -t f -p "en_US[^_]" | ack -x'
-alias ackq='ack -Q'
 # ack but only search files that git knows about (honor .gitignore)
 alias agk='git ls-files --others --cached --exclude-standard | ack -x'
 alias agl='ag --literal'
 alias fdd='fd -t d'
 alias fdf='fd -t f'
 alias fzv='fzf --multi | xargs mvim -p --'
+alias gd='git diff'
+alias gds='git diff --cached'
+alias gl='git log --oneline --decorate'
+alias glg='git log --oneline --decorate --graph'
+alias glga='git log --oneline --decorate --graph --all'
+alias gll='git log'
 alias gs='git status'
+alias gss='git status --short --branch'
 # print out the list of packages in node_modules that are npm link'd
 alias nlinks='find node_modules -maxdepth 1 -type l -print'
 alias path='echo $PATH | tr ":" "\n"'
