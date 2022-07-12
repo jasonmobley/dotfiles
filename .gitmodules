@@ -49,3 +49,6 @@
 [submodule "zsh/.omz-custom/plugins/zsh-syntax-highlighting"]
 	path = zsh/.omz-custom/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "vim/.vim/pack/default/start/vim-prettier"]
+	path = vim/.vim/pack/default/start/vim-prettier
+	url = https://github.com/prettier/vim-prettier
