@@ -152,12 +152,13 @@ if (( $+commands[exa] )) {
 
 # Functions
 #
-# list the N most recently checked out branches (5 by default)
+# list the N most recently checked out branches (9 by default)
 branches() {
   git reflog \
-    | sed -n 's/.*checkout: moving from .* to \(.*\)/\1/p' \
+    | sed -n 's/.*checkout: moving from \(.*\) to \(.*\)/\2 \1/p' \
+    | tr ' ' '\n' \
     | awk '!x[$0]++' \
-    | head -n "${1:-5}"
+    | head -n "${1:-9}"
 }
 # print the current git branch and copy it to the clipboard
 branch() {
