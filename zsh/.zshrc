@@ -146,8 +146,8 @@ if (( $+commands[exa] )) {
   # format times like file modified time as ISO instead of dynamic which is too variable
   export TIME_STYLE=long-iso
   # list [a]ll files in a [l]ong listing with column [h]eaders and include git status info if any
-  alias la='exa -ahl --git'
-  alias ll='exa -hl --git'
+  alias la='exa -ahl --git --group-directories-first'
+  alias ll='exa -hl --git --group-directories-first'
 }
 
 # Functions
