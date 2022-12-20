@@ -7,16 +7,14 @@ export DEFAULT_USER=`id -un`
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# Load nvm if it's installed (this needs to be before the plugins section below)
-if [[ -d $HOME/.nvm ]] {
-  export NVM_DIR="$HOME/.nvm"
-  # nvm.sh is sourced by the nvm OMZ plugin (listed in plugins list below) so no need to source here
-  # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use
-
-  # Tell OMZ nvm plugin to source nvm.sh with the --no-use flag for faster startup
-  # NVM_LAZY=1
-  # Tell OMZ nvm plugin to enable automatic `nvm use` when changing to a dir containing .nvmrc
-  NVM_AUTOLOAD=1
+# Volta setup
+# If $VOLTA_HOME isn't already set, set it to ~/.volta
+if [[ ! -n "$VOLTA_HOME" ]] {
+  export VOLTA_HOME="$HOME/.volta"
+}
+# And if $VOLTA_HOME/bin dir exists, add it to $PATH
+if [[ -d $VOLTA_HOME/bin ]] {
+  export PATH=$VOLTA_HOME/bin:$PATH
 }
 
 # Base16 Shell
@@ -74,7 +72,7 @@ if [[ -d $HOME/.omz-custom ]] {
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(nvm zsh-syntax-highlighting)
+plugins=(zsh-syntax-highlighting)
 
 if [[ -e $ZSH/oh-my-zsh.sh ]] {
   source $ZSH/oh-my-zsh.sh
