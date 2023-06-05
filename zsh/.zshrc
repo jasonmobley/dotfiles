@@ -150,13 +150,13 @@ if (( $+commands[exa] )) {
 
 # Functions
 #
-# list the N most recently checked out branches (9 by default)
+# list the N most recently checked out branches (20 by default)
 branches() {
   git reflog \
     | sed -n 's/.*checkout: moving from \(.*\) to \(.*\)/\2 \1/p' \
     | tr ' ' '\n' \
     | awk '!x[$0]++' \
-    | head -n "${1:-9}"
+    | head -n "${1:-20}"
 }
 # print the current git branch and copy it to the clipboard
 branch() {
@@ -172,6 +172,16 @@ parent() {
     | sed 's/.*\[\(.*\)\].*/\1/' \
     | sed 's/[\^~].*//'
 }
+gitCheckoutWithFzf() {
+  if [ $# -eq 0 ]; then
+    # if we got no args then prompt for a branch name using fzf
+    local ref="$(git branch --list --format='%(refname:short)' | fzf --no-multi)"
+    [ -n "$ref" ] && git checkout "$ref"
+  else
+    # otherwise just call `git checkout` with the args we were passed
+    git checkout "$@"
+  fi
+}
 
 # Aliases
 #
@@ -183,7 +193,8 @@ alias fdd='fd -t d'
 alias fdf='fd -t f'
 alias fzv='fzf --multi | xargs mvim -p --'
 alias gap='git add --patch'
-alias gc='git checkout'
+alias gb='git branch'
+alias gc='gitCheckoutWithFzf'
 alias gd='git diff'
 alias gds='git diff --cached'
 alias gl='git log --oneline --decorate'
