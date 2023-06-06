@@ -4,19 +4,14 @@ set termguicolors
 " Status Line stuff
 set laststatus=2
 
-" vim-airline configuration
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#whitespace#enabled = 0 "disable trailing/mixed-indent whitespace checking
-" vim-airline symbol customization
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
+" lightline configuration
+" https://github.com/itchyny/lightline.vim
+if !exists('g:lightline')
+  let g:lightline = {}
 endif
-let g:airline_symbols.linenr = " L"
-let g:airline_symbols.colnr = "C"
-" Opt out of the silly powerline separators since they don't always align
-" right depending on the font (height of separators can be too tall)
-let g:airline_left_sep = ""
-let g:airline_right_sep = ""
+let g:lightline.colorscheme = 'wombat'
+let g:lightline.active = { 'left': [ ['mode', 'paste'], ['gitbranch', 'readonly', 'filename', 'modified'] ] }
+let g:lightline.component_function = { 'gitbranch': 'FugitiveHead' }
 
 " Make <Leader> be comma instead of backslash
 let mapleader=","
