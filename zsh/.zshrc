@@ -112,7 +112,7 @@ fi
 #prompt pure
 
 # enable caching for oh-my-zsh/git-prompt plugin
-ZSH_THEME_GIT_PROMPT_CACHE=1
+export ZSH_THEME_GIT_PROMPT_CACHE=1
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
