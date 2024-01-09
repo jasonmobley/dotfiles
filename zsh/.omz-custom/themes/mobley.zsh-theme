@@ -16,6 +16,9 @@ prompt_color=%(?.$fg[cyan].$fg[red])
 # Plain chevron
 prompt_text=❯
 
+# Simple arrow
+#prompt_text=→
+
 # Powerline rightward pointing triangle
 #prompt_text=`print '\uE0B0'` # 
 
