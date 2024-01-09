@@ -117,6 +117,35 @@ export ZSH_THEME_GIT_PROMPT_CACHE=1
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
+# File listing customizations
+
+# For consistent/readable create/modify time in file listings
+export TIME_STYLE=long-iso
+
+# Generate a decent LS_COLORS using vivid
+# Commented because oh-my-zsh LS_COLORS are fine
+if (( $+commands[vivid] )) {
+  export LS_COLORS="$(vivid generate snazzy)"
+}
+
+# Use the GNU ls instead of the BSD one because it doesn't support LS_COLORS
+if (( $+commands[gls] )) {
+  # alias "ls" to the GNU version of ls on mac
+  alias ls='gls --color=auto --group-directories-first --no-group'
+}
+
+# Configure eza (formerly exa) if it's installed
+# https://github.com/eza-community/eza
+if (( $+commands[eza] )) {
+  # change file owner to yellow instead of bold yellow, modified time to purple instead of blue
+  export EZA_COLORS="uu=33:da=35"
+  # format times like file modified time as ISO instead of dynamic which is too variable
+  # list [a]ll files in a [l]ong listing with column [h]eaders and include git status info if any
+  alias la='eza -ahl --git --group-directories-first'
+  alias ll='eza -hl --git --group-directories-first --no-user'
+}
+
+
 # Source machine-specific .zshrc
 if [[ -e $HOME/.zshrc.local ]] {
   source $HOME/.zshrc.local
@@ -134,20 +163,6 @@ export BAT_THEME=TwoDark
 # Tell ripgrep about our config file if present (should be linked to ~ from ~/dotfiles/ripgrep)
 if [[ -e $HOME/.ripgreprc ]] {
   export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
-}
-
-# Configure exa/eza if it's installed
-# https://the.exa.website/
-# Looks like exa is deprecated, so use eza instead
-# https://github.com/eza-community/eza
-if (( $+commands[eza] )) {
-  # change file owner to yellow instead of bold yellow, modified time to purple instead of blue
-  export EXA_COLORS="uu=33:da=35"
-  # format times like file modified time as ISO instead of dynamic which is too variable
-  export TIME_STYLE=long-iso
-  # list [a]ll files in a [l]ong listing with column [h]eaders and include git status info if any
-  alias la='eza -ahl --git --group-directories-first'
-  alias ll='eza -hl --git --group-directories-first'
 }
 
 # Functions
