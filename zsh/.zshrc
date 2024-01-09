@@ -72,7 +72,7 @@ if [[ -d $HOME/.omz-custom ]] {
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-syntax-highlighting)
+plugins=(zsh-syntax-highlighting fzf-git)
 
 if [[ -e $ZSH/oh-my-zsh.sh ]] {
   source $ZSH/oh-my-zsh.sh
@@ -136,16 +136,18 @@ if [[ -e $HOME/.ripgreprc ]] {
   export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 }
 
-# Configure exa if it's installed
+# Configure exa/eza if it's installed
 # https://the.exa.website/
-if (( $+commands[exa] )) {
+# Looks like exa is deprecated, so use eza instead
+# https://github.com/eza-community/eza
+if (( $+commands[eza] )) {
   # change file owner to yellow instead of bold yellow, modified time to purple instead of blue
   export EXA_COLORS="uu=33:da=35"
   # format times like file modified time as ISO instead of dynamic which is too variable
   export TIME_STYLE=long-iso
   # list [a]ll files in a [l]ong listing with column [h]eaders and include git status info if any
-  alias la='exa -ahl --git --group-directories-first'
-  alias ll='exa -hl --git --group-directories-first'
+  alias la='eza -ahl --git --group-directories-first'
+  alias ll='eza -hl --git --group-directories-first'
 }
 
 # Functions
@@ -172,16 +174,6 @@ parent() {
     | sed 's/.*\[\(.*\)\].*/\1/' \
     | sed 's/[\^~].*//'
 }
-gitCheckoutWithFzf() {
-  if [ $# -eq 0 ]; then
-    # if we got no args then prompt for a branch name using fzf
-    local ref="$(git branch --list --format='%(refname:short)' | fzf --no-multi)"
-    [ -n "$ref" ] && git checkout "$ref"
-  else
-    # otherwise just call `git checkout` with the args we were passed
-    git checkout "$@"
-  fi
-}
 
 # Aliases
 #
@@ -194,7 +186,7 @@ alias fdf='fd -t f'
 alias fzv='fzf --multi | xargs mvim -p --'
 alias gap='git add --patch'
 alias gb='git branch'
-alias gc='gitCheckoutWithFzf'
+alias gc='git checkout'
 alias gd='git diff'
 alias gds='git diff --cached'
 alias gl='git log --oneline --decorate'
