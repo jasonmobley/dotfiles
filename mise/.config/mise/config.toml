@@ -1,0 +1,6 @@
+[env]
+# tell mise to do "corepack enable" after installing any Node version that supports corepack
+MISE_NODE_COREPACK = 1
+
+[tools]
+node = "20"

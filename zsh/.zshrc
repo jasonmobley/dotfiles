@@ -7,16 +7,6 @@ export DEFAULT_USER=`id -un`
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# Volta setup
-# If $VOLTA_HOME isn't already set, set it to ~/.volta
-if [[ ! -n "$VOLTA_HOME" ]] {
-  export VOLTA_HOME="$HOME/.volta"
-}
-# And if $VOLTA_HOME/bin dir exists, add it to $PATH
-if [[ -d $VOLTA_HOME/bin ]] {
-  export PATH=$VOLTA_HOME/bin:$PATH
-}
-
 # Base16 Shell
 BASE16_SHELL="$HOME/.base16-shell/"
 [ -n "$PS1" ] && \
@@ -72,7 +62,7 @@ if [[ -d $HOME/.omz-custom ]] {
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-syntax-highlighting fzf-git)
+plugins=(direnv fzf-git zsh-syntax-highlighting)
 
 if [[ -e $ZSH/oh-my-zsh.sh ]] {
   source $ZSH/oh-my-zsh.sh
@@ -145,6 +135,11 @@ if (( $+commands[eza] )) {
   alias ll='eza -hl --git --group-directories-first --no-user'
 }
 
+# Activate mise (version manager for NodeJS, Java, Python, etc)
+# https://mise.jdx.dev/
+if (( $+commands[mise] )) {
+  eval "$(mise activate zsh)"
+}
 
 # Source machine-specific .zshrc
 if [[ -e $HOME/.zshrc.local ]] {
