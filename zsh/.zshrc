@@ -159,6 +159,14 @@ export BAT_THEME=TwoDark
 if [[ -e $HOME/.ripgreprc ]] {
   export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 }
+# Enable hyperlinking in ripgrep by aliasing the command
+# Use macvim-style hyperlinks with ripgrep if mvim binary is present or default style otherwise
+# (prefixing with "command" tells zsh to find the rg binary ignoring aliases)
+if (( $+commands[mvim] )) {
+  alias rg="command rg --hyperlink-format=macvim"
+} else {
+  alias rg="command rg --hyperlink-format=default"
+}
 
 # Functions
 #
