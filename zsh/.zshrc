@@ -196,14 +196,12 @@ parent() {
 # Aliases
 #
 alias brews='brew list -1'
-# ack but only search files that git knows about (honor .gitignore)
-alias agk='git ls-files --others --cached --exclude-standard | ack -x'
-alias agl='ag --literal'
+# join lines from stdin into a single comma-delimited string
+alias commas='paste -s -d , -'
 alias fdd='fd -t d'
 alias fdf='fd -t f'
 alias fzv='fzf --multi | xargs mvim -p --'
 alias gap='git add --patch'
-alias gb='git branch'
 alias gc='git checkout'
 alias gd='git diff'
 alias gds='git diff --cached'
