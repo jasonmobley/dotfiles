@@ -7,9 +7,6 @@
 [submodule "vim/.vim/pack/default/start/vim-unimpaired"]
 	path = vim/.vim/pack/default/start/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
-[submodule "vim/.vim/pack/default/start/editorconfig-vim"]
-	path = vim/.vim/pack/default/start/editorconfig-vim
-	url = https://github.com/editorconfig/editorconfig-vim.git
 [submodule "vim/.vim/pack/default/start/nerdtree"]
 	path = vim/.vim/pack/default/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
