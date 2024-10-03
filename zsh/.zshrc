@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
 # Set $DEFAULT_USER so that PROMPT can omit user on local shells
 export DEFAULT_USER=`id -un`
@@ -62,7 +62,7 @@ if [[ -d $HOME/.omz-custom ]] {
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(fzf-git zsh-syntax-highlighting)
+plugins=()
 
 if [[ -e $ZSH/oh-my-zsh.sh ]] {
   source $ZSH/oh-my-zsh.sh
@@ -70,8 +70,9 @@ if [[ -e $ZSH/oh-my-zsh.sh ]] {
   >&2 echo "oh-my-zsh is not installed!"
 }
 
-if [[ -f ~/.fzf.zsh ]] {
-  source ~/.fzf.zsh
+# Initialize fzf shell integration (e.g. ** tab expansion)
+if (( $+commands[fzf] )) {
+  source <(fzf --zsh)
 }
 
 # Add rust and cargo stuff to PATH if Rust is installed to ~/.cargo
@@ -218,3 +219,9 @@ alias tcp='lsof -P -i TCP -s TCP:LISTEN'
 
 # Prefer neovim as vim when present
 (( $+commands[nvim] )) && alias vim=nvim
+
+# Source the zsh-syntax-highlighting script if present
+# NOTE: this is meant to be the last thing in .zshrc!
+if [[ -f $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] {
+  source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+}
