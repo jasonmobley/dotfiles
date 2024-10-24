@@ -154,7 +154,7 @@ typeset -U path
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 # Bat config
-export BAT_THEME=TwoDark
+export BAT_THEME=base16
 
 # Tell ripgrep about our config file if present (should be linked to ~ from ~/dotfiles/ripgrep)
 if [[ -e $HOME/.ripgreprc ]] {
