@@ -114,7 +114,7 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 export TIME_STYLE=long-iso
 
 # Generate a decent LS_COLORS using vivid
-# Commented because oh-my-zsh LS_COLORS are fine
+# Other nice themes: nord, snazzy, zenburn
 if (( $+commands[vivid] )) {
   export LS_COLORS="$(vivid generate snazzy)"
 }
