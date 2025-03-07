@@ -160,8 +160,9 @@ if has("gui_running")
     set lines=42 columns=150
     set guifont=Consolas_for_Powerline_FixedD:h12:cANSI
   else
-    set lines=50 columns=150
-    set guifont=InconsolataNFM-Regular:h18
+    set lines=42 columns=150
+    set guifont=Iosevka:h16
+    " set guifont=InconsolataNFM-Regular:h18
     " set guifont=-monospace-:h16
   endif
   " Add tab number to the tab labels for easy switching
