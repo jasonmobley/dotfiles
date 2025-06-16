@@ -5,3 +5,6 @@ MISE_NODE_COREPACK = 1
 [tools]
 node = "18"
 python = "system"
+
+[settings]
+idiomatic_version_file_enable_tools = ["node", "java"]
