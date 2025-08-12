@@ -179,9 +179,15 @@ branches() {
     | awk '!x[$0]++' \
     | head -n "${1:-20}"
 }
-# print the current git branch and copy it to the clipboard
+# print the current git branch
 branch() {
-  git branch --show-current
+  if [ -t 1 ]; then
+    # if stdout is a terminal simply run the command to print the branch name
+    git branch --show-current
+  else
+    # otherwise (not a terminal, e.g. a pipe) strip the trailing newline (for things like piping to pbcopy)
+    echo -n "$(git branch --show-current)"
+  fi
 }
 # print the "parent" branch of the current git branch and copy to the clipboard
 # (this is really more like the "merge-base" ... that is, the branch we pull from and would likely target with a PR)
